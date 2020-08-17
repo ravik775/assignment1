@@ -1,0 +1,8 @@
+1. https://developers.google.com/sheets/api/quickstart/python
+2. RAVI-POC Project
+	Client Id: 884462928437-s2eldo74l074uanjv7hk1b4a9qen5toe.apps.googleusercontent.com
+	Client Secret: XIzpkcqQMSADKr8i1gNHA_5J
+	Console: https://console.developers.google.com/?authuser=0&project=ravi775-poc-1597471940519&pli=1
+3. python -m pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+4. python -m pip install gspread
+5. https://www.youtube.com/watch?v=T1vqS1NL89E
