@@ -7,6 +7,9 @@ class TestTransulateMethods(unittest.TestCase):
     def setUp(self):
         self.instance = WordTransulator()
 
+    def tearDown(self):
+        self.instance = None
+
     def test_transulate_word(self):
         test_data = {
             "telephone": ["mobile", "landline"],
