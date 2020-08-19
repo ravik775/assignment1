@@ -34,15 +34,27 @@ class WordTransulator:
         }
 
     def transulate_word(self, word):
-    
-        tr_words = self.transulator.get(word) 
-        if not tr_words:
-            for index, ch in enumerate(word):
-                tr_chs = self.transulator.get(ch) or (ch,)
-                if tr_chs != (ch,):
-                    tr_words = [word[0:index]+tr_ch+word[index+1:] for tr_ch in tr_chs]
-                    break;
-        return tr_words
+        result = []
+        words_to_transulate = [word]
+        while words_to_transulate:
+            tr_words = self.transulator.get(words_to_transulate[-1]) 
+            if not tr_words:
+                for index, ch in enumerate(word):
+                    tr_chs = self.transulator.get(ch) or (ch,)
+                    if tr_chs != (ch,):
+                        tr_words = [word[0:index]+tr_ch+word[index+1:] for tr_ch in tr_chs]
+                        break;
+
+            del words_to_transulate[-1] # remove the processed input
+
+            if tr_words:
+                for w in tr_words:
+                    if w not in result:
+                        result.append(w)
+                        words_to_transulate.append(w)
+            if word in result:
+                result.remove(word)
+        return result
 
     def transulate(self, text):
         transulation_texts = [text]
